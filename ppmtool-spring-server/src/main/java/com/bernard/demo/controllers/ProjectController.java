@@ -1,8 +1,6 @@
 package com.bernard.demo.controllers;
 
-import com.bernard.ppmtool.domain.Project;
-import com.bernard.ppmtool.service.MapValidationErrorService;
-import com.bernard.ppmtool.service.ProjectService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
