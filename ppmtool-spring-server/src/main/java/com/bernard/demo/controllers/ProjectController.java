@@ -1,5 +1,7 @@
 package com.bernard.demo.controllers;
 
+import com.bernard.demo.services.MapValidationErrorService;
+import com.bernard.demo.services.ProjectService;
 import com.bernard.ppmtool.domain.Project;
 import com.bernard.ppmtool.service.MapValidationErrorService;
 import com.bernard.ppmtool.service.ProjectService;
@@ -14,7 +16,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
 import java.security.Principal;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
