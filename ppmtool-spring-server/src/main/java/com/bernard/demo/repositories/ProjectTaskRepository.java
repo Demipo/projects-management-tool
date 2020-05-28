@@ -1,6 +1,6 @@
 package com.bernard.demo.repositories;
 
-import com.bernard.ppmtool.domain.ProjectTask;
+import com.bernard.demo.domains.ProjectTask;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

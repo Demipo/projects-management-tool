@@ -1,6 +1,6 @@
 package com.bernard.demo.repositories;
 
-import com.bernard.ppmtool.domain.Backlog;
+import com.bernard.demo.domains.Backlog;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

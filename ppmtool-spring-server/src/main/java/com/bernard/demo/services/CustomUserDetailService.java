@@ -1,6 +1,7 @@
 package com.bernard.demo.services;
 
-import com.bernard.ppmtool.domain.User;
+import com.bernard.demo.domains.User;
+import com.bernard.demo.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

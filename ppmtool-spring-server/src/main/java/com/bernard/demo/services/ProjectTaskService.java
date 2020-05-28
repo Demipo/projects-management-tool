@@ -1,8 +1,11 @@
 package com.bernard.demo.services;
 
-import com.bernard.ppmtool.domain.Backlog;
-import com.bernard.ppmtool.domain.ProjectTask;
-import com.bernard.ppmtool.exception.ProjectNotFoundExceptionHandler;
+import com.bernard.demo.domains.Backlog;
+import com.bernard.demo.domains.ProjectTask;
+import com.bernard.demo.exceptions.ProjectNotFoundExceptionHandler;
+import com.bernard.demo.repositories.BacklogRepository;
+import com.bernard.demo.repositories.ProjectRepository;
+import com.bernard.demo.repositories.ProjectTaskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,7 +26,6 @@ public class ProjectTaskService {
      private BacklogRepository backlogRepository;
 
     public ProjectTask addProjectTask(String projectIdentifier, ProjectTask projectTask, String username) {
-
         Backlog backlog = projectService.getProjectByIdentifier(projectIdentifier,username).getBacklog();
 
         if(projectTask.getId() == null){
@@ -42,18 +44,13 @@ public class ProjectTaskService {
                 projectTask.setStatus("TO_DO");
             }
         }
-               
         return projectTaskRepository.save(projectTask);
     }
-
-
 
     public Iterable<ProjectTask> findBacklogById(String id, String username){
         projectService.getProjectByIdentifier(id,username);
         return projectTaskRepository.findByProjectIdentifierOrderByPriority(id);
     }
-
-
 
     public ProjectTask getProjectTaskBySequence(String backlog_id, String pt_id, String username) {
 
@@ -77,14 +74,11 @@ public class ProjectTaskService {
 
 
     public ProjectTask updateProjectTaskBySequence(ProjectTask projectTask, String backlog_id, String pt_id, String username) {
-
         ProjectTask projectTask1 = projectTaskRepository.findByProjectSequence(pt_id);
         getProjectTaskBySequence(backlog_id, pt_id, username);
         projectTask1 = projectTask;
         return projectTaskRepository.save(projectTask);
     }
-
-
 
     public void deleteProjectTaskBySequence(String backlog_id, String pt_id, String username){
         ProjectTask projectTask = getProjectTaskBySequence(backlog_id, pt_id, username);

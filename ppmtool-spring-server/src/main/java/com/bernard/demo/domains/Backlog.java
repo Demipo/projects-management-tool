@@ -1,12 +1,16 @@
 package com.bernard.demo.domains;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
+@Data
+@NoArgsConstructor
 public class Backlog {
 
     @Id
@@ -23,56 +27,4 @@ public class Backlog {
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.REFRESH, mappedBy = "backlog", orphanRemoval = true)
     private List<ProjectTask> projectTasks = new ArrayList<>();
 
-    public Backlog() {
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Integer getPTSequence() {
-        return PTSequence;
-    }
-
-    public void setPTSequence(Integer PTSequence) {
-        this.PTSequence = PTSequence;
-    }
-
-    public String getProjectIdentifier() {
-        return projectIdentifier;
-    }
-
-    public void setProjectIdentifier(String projectIdentifier) {
-        this.projectIdentifier = projectIdentifier;
-    }
-
-    public Project getProject() {
-        return project;
-    }
-
-    public void setProject(Project project) {
-        this.project = project;
-    }
-
-    public List<ProjectTask> getProjectTask() {
-        return projectTasks;
-    }
-
-    public void setProjectTask(List<ProjectTask> projectTask) {
-        this.projectTasks = projectTask;
-    }
-
-    @Override
-    public String toString() {
-        return "Backlog{" +
-                "id=" + id +
-                ", PTSequence=" + PTSequence +
-                ", projectIdentifier='" + projectIdentifier + '\'' +
-                ", project=" + project +
-                '}';
-    }
 }

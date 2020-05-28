@@ -1,13 +1,13 @@
 package com.bernard.demo.controllers;
 
 
-import com.bernard.ppmtool.domain.User;
-import com.bernard.ppmtool.dto.JwtLoginSuccessResponse;
-import com.bernard.ppmtool.dto.LoginRequest;
-import com.bernard.ppmtool.security.JwtTokenProvider;
-import com.bernard.ppmtool.service.MapValidationErrorService;
-import com.bernard.ppmtool.service.UserService;
-import com.bernard.ppmtool.validator.UserValidator;
+import com.bernard.demo.domains.User;
+import com.bernard.demo.dto.JwtLoginSuccessResponse;
+import com.bernard.demo.dto.LoginRequest;
+import com.bernard.demo.security.JwtTokenProvider;
+import com.bernard.demo.services.MapValidationErrorService;
+import com.bernard.demo.services.UserService;
+import com.bernard.demo.validator.UserValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,9 +18,9 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
+import static com.bernard.demo.security.SecurityConstants.TOKEN_PREFIX;
 
-import static com.bernard.ppmtool.security.SecurityConstants.TOKEN_PREFIX;
+import javax.validation.Valid;
 
 @RestController
 @RequestMapping("api/users")

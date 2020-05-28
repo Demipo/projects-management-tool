@@ -1,10 +1,13 @@
 package com.bernard.demo.services;
 
-import com.bernard.ppmtool.domain.Backlog;
-import com.bernard.ppmtool.domain.Project;
-import com.bernard.ppmtool.domain.User;
-import com.bernard.ppmtool.exception.ProjectIdExceptionHandler;
-import com.bernard.ppmtool.exception.ProjectNotFoundExceptionHandler;
+import com.bernard.demo.domains.Backlog;
+import com.bernard.demo.domains.Project;
+import com.bernard.demo.domains.User;
+import com.bernard.demo.exceptions.ProjectIdExceptionHandler;
+import com.bernard.demo.exceptions.ProjectNotFoundExceptionHandler;
+import com.bernard.demo.repositories.BacklogRepository;
+import com.bernard.demo.repositories.ProjectRepository;
+import com.bernard.demo.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
