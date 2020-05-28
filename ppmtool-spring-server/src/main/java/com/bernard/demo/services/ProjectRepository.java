@@ -1,4 +1,4 @@
-package com.bernard.demo.repositories;
+package com.bernard.demo.services;
 
 import com.bernard.ppmtool.domain.Project;
 import org.springframework.data.jpa.repository.JpaRepository;

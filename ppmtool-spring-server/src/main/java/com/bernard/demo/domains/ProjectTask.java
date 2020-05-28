@@ -1,5 +1,8 @@
 package com.bernard.demo.domains;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.util.Date;
@@ -22,7 +25,14 @@ public class ProjectTask {
     @Column(updatable = false)
     private String projectIdentifier;
 
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "backlog_id", nullable = false, updatable = false)
+    @JsonIgnore
+    private Backlog backlog;
+
+    @JsonFormat(pattern = "yyyy-mm-dd")
     private Date create_At;
+    @JsonFormat(pattern = "yyyy-mm-dd")
     private Date updated_At;
 
     public ProjectTask() {
@@ -116,6 +126,14 @@ public class ProjectTask {
     @PreUpdate
     protected void onUpdate(){
         this.updated_At = new Date();
+    }
+
+    public Backlog getBacklog() {
+        return backlog;
+    }
+
+    public void setBacklog(Backlog backlog) {
+        this.backlog = backlog;
     }
 
     @Override
