@@ -1,5 +1,9 @@
 package com.bernard.demo.swagger;
 
+import com.bernard.demo.domains.Project;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -41,3 +45,10 @@ public class SwaggerConfig {
                 .build();
     }
 }
+//.select()
+//        .apis(RequestHandlerSelectors.any())
+//        .paths(PathSelectors.any())
+//        .build();
+//
+//@ApiOperation("Gets a particular project using the project's id.")
+//@ApiResponses(value = {@ApiResponse(code = 200, message = "OK", response = Project.class)})
